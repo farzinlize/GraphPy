@@ -13,9 +13,7 @@ class Graph:
         return 0
 
     def addEdge(self, edge):
-        added  = self.addNode(edge.src)
-        added |= self.addNode(edge.dst)
-        if added:
+        if edge not in self.edges:
             self.edges += [edge]
 
     def searchByNameNode(self, name):
@@ -57,15 +55,16 @@ class Edge:
         self.src = src
         self.dst = dst
 
+    def __eq__(self, other):
+        return self.dst == other.dst and self.src == other.src
+
 
 import random, string
 
 def main():
-    with open("user.txt", "w") as f:
-        for i in range(1, 81):
-            password = ''.join(random.choices(string.ascii_lowercase, k=8))
-            f.write("user" + format(i, "02d") + "\t" + password + "\n")
-
+    g = Graph()
+    g.readFromFile("g.txt")
+    print(g.edges)
 
 if __name__ == "__main__":
     main()
