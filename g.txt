@@ -1,0 +1,10 @@
+5
+Hamedan
+Shiraz
+Tehran
+Qazvin
+Esfahan
+Hamedan Tehran
+Qazvin Tehran
+Tehran Esfahan
+Shiraz Esfahan
